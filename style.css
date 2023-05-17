@@ -1,0 +1,153 @@
+*{       /* "*" represents entire file on html */
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box; 
+ font-family: sans-serif 
+}
+
+body {
+    background-color: rgb(231, 133, 133);
+}
+
+.app{
+    display: flex;
+    justify-content: center;    /* Everything going into centre*/
+    align-items: center;
+    height: 100vh;
+}
+
+
+.calculator{
+    background-color: #22252d;
+    width: 100%;
+    max-width: 375px;
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.5rem;   /* rem is a form of measurement unit (1 rem = 16px*/
+    overflow: hidden;
+}
+
+.display{
+    min-height: 200px;
+    padding: 1.5rem;
+    display: flex;               /* Must declare display: flex to use the properties of flex*/
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: white;
+    text-align: right;
+    flex: 1 1 0%;      /*  layout property that is used to create flexible and responsive layouts. */
+}
+
+.display .input{
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+}
+
+.display .output{
+    font-size: 3rem;
+    font-weight: 500;
+    max-width: 100%;
+    overflow: auto;
+    width: 100%;
+}
+
+.display .operator{
+    color: #c6b3ff
+}
+
+.display .brackets, .display .percent{
+    color: #26fed7
+}
+
+.keys{
+    background-color: #292d36;
+    padding: 1.5rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 1.5rem;
+    box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.2)
+}
+
+.keys .key{
+    position: relative;
+    cursor: pointer;
+    display: block;
+    height: 0px;
+    padding-top: 100%;
+    background-color: #262933;
+    border-radius: 1rem;
+    transition: background-color 0.3s, opacity 0.1s;
+    user-select: none;  /* Don't want the user being able to select the text*/
+}
+
+.keys .key span{ /* element used to group inline elements and apply styles to them as a whole.*/
+    position: absolute;   /* used to position an element relative to its closest positioned ancestor*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* is a common technique used to center an element both horizontally and vertically within its parent container. */
+    font-size: 1.5rem;
+    font-weight: 500;    /* Bolding */
+    
+}
+
+
+.keys .key.operator span{  
+    color: #c6b3ff
+}
+
+.keys .key.action span{
+    color: #26fed7
+}
+
+.keys .key.num span{ 
+    color:white
+}
+
+
+.keys .key:hover{
+    background-color: black;
+    transform: scale(1.05);
+}
+
+.keys .key:active{
+    opacity: 0.3;
+
+}
+
+.theme-toggler{
+    position: absolute;
+    top: 30px;
+    right: 3opx;
+    color: rgb(98, 47, 47);
+    cursor: pointer;
+    z-index: 1;
+
+}
+
+.theme-toggler.active{
+    color: #333
+}
+
+.theme-toggler.active::before{
+    background: rgb(216, 98, 98);
+}
+
+.theme-toggler::before{
+    content: '';
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    translate: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #333;
+    z-index: -1;
+    left: 320px;
+    margin-top: 25px;
+    
+}
+
